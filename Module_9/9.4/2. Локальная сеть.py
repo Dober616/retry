@@ -1,7 +1,11 @@
 step = int(input('Введите шаг: '))
 for i in range(4):
-    print(f'\n{i + 1}-й IP', end=': ')
-    for y in range(3):
-        numm = int(input('Введите первое число IP: '))
-        print(numm, end='.')
-        numm += step
+    sum = 0
+    number = int(input(f'Введите первое число адреса {i + 1}-го ip: '))
+    for _ in range(3):
+        print(f'{number}', end='.')
+        number += step
+        sum += number
+    print(sum)
+
+
