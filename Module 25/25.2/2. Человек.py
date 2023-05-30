@@ -31,9 +31,44 @@ class Human:
         return self.__count
 
 
-egor = Human('Egor', 33)
-tom = Human('Tom', 34)
-print(egor)
-print(tom)
-print(tom.get_count())
+class Student(Human):
+    def __init__(self, name, age, university):
+        super().__init__(name, age)
+        self.university = university
+
+    def study(self):
+        print(f'Студент идет в университет {self.university} учиться')
+
+    def __str__(self):
+        info = super().__str__()
+        return info
+
+
+class Employee(Human):
+    def __init__(self, name, age, company, salary):
+        super().__init__(name, age)
+        self.company = company
+        self.salary = salary
+        self.money = 0
+
+    def work(self):
+        self.money += self.salary
+        print(f'Работник пошел работать в {self.company} и заработал {self.salary} денег, теперь у него {self.money}')
+
+    def __str__(self):
+        return f'Работник {self.get_name()} работает в {self.company} и получает зарплату {self.salary}. ' \
+               f'Ему {self.get_age()} лет'
+
+
+# egor = Human('Egor', 33)
+# tom = Human('Tom', 34)
+# jim = Employee('Джим', 25, 'Газпром', 10000)
+# jim.work()
+tim = Student('Тим', 18, 'МГУ')
+print(tim)
+tim.study()
+# print(jim)
+# print(egor)
+# print(tom)
+# print(tom.get_count())
 
